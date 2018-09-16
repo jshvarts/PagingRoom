@@ -6,12 +6,23 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.NavigationUI.*
 import com.jshvarts.notespaging.R
+import com.jshvarts.notespaging.di.HelloWorldProvider
+import dagger.Module
+import dagger.android.AndroidInjection
+import dagger.android.ContributesAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+    @Inject lateinit var helloWorldProvider: HelloWorldProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
+
+        Timber.d("james: %s", helloWorldProvider.getMessage())
+
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
@@ -47,3 +58,10 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(navigationView, navController)
     }
 }
+
+@Module
+abstract class MainActivityModule {
+    @ContributesAndroidInjector
+    abstract fun contributeMainActivity(): MainActivity
+}
+

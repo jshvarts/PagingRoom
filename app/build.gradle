@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-kapt'
 
 ext {
     appCompatVersion = "1.0.0-rc02"
@@ -10,6 +11,7 @@ ext {
     timberVersion = "4.7.1"
     navigationVersion = "1.0.0-alpha05"
     pagingVersion = "2.0.0-rc01"
+    daggerVersion = "2.16"
 }
 
 android {
@@ -37,10 +39,6 @@ android {
     }
 }
 
-androidExtensions {
-    experimental = true
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -59,6 +57,11 @@ dependencies {
     // Paging with RxJava2 support
     implementation "androidx.paging:paging-runtime:$pagingVersion"
     implementation "androidx.paging:paging-rxjava2:$pagingVersion"
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Timber
     implementation "com.jakewharton.timber:timber:$timberVersion"
