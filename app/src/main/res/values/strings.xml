@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Notes Navigation</string>
+    <string name="label_note_list">Note List</string>
+    <string name="label_note_detail">Note Detail</string>
+    <string name="label_add_note">Add Note</string>
+    <string name="label_edit_note">Edit Note</string>
+    <string name="label_delete_note">Confirm Delete Note</string>
+    <string name="label_search_notes">Search Notes</string>
+    <string name="notes_not_found">No notes found</string>
+    <string name="note_detail_id">id: %s</string>
+    <string name="note_detail_text">text: %s</string>
+    <string name="error_loading_note">Error loading note</string>
+    <string name="add_note_hint">add note</string>
+    <string name="error_validating_note">Invalid text</string>
+    <string name="edit_note_button_text">Edit</string>
+    <string name="edit_note_hint">edit note</string>
+    <string name="delete_note_button_text">Delete</string>
+    <string name="cancel_delete_button_text">Cancel</string>
+    <string name="confirm_delete_button_text">Confirm Delete</string>
+    <string name="error_deleting_note">Error deleting note</string>
+</resources>
