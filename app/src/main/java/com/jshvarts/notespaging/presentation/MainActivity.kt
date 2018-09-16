@@ -15,13 +15,14 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    @Inject lateinit var helloWorldProvider: HelloWorldProvider
+    @Inject
+    lateinit var helloWorldProvider: HelloWorldProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
 
-        Timber.d("james: %s", helloWorldProvider.getMessage())
+        Timber.d("hello world message: %s", helloWorldProvider.getMessage())
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
