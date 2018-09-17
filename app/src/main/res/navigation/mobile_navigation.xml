@@ -33,15 +33,7 @@
 
         <argument
             android:name="noteId"
-            app:argType="integer" />
-
-        <action
-            android:id="@+id/action_noteDetail_to_editNote"
-            app:destination="@id/editNoteFragment" />
-
-        <action
-            android:id="@+id/action_noteDetail_to_deleteNote"
-            app:destination="@id/deleteNoteFragment" />
+            app:argType="long" />
 
         <deepLink
             android:id="@+id/noteDetailDeepLink"
@@ -54,28 +46,6 @@
         android:name="com.jshvarts.notespaging.presentation.addnote.AddNoteFragment"
         android:label="@string/label_add_note"
         tools:layout="@layout/add_note_fragment" />
-
-    <fragment
-        android:id="@+id/editNoteFragment"
-        android:name="com.jshvarts.notespaging.presentation.editnote.EditNoteFragment"
-        android:label="@string/label_edit_note"
-        tools:layout="@layout/edit_note_fragment">
-
-        <argument
-            android:name="noteId"
-            app:argType="integer" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/deleteNoteFragment"
-        android:name="com.jshvarts.notespaging.presentation.deletenote.DeleteNoteFragment"
-        android:label="@string/label_delete_note"
-        tools:layout="@layout/delete_note_fragment">
-
-        <argument
-            android:name="noteId"
-            app:argType="integer" />
-    </fragment>
 
     <fragment
         android:id="@+id/searchFragment"

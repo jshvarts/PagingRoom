@@ -1,24 +1,31 @@
 package com.jshvarts.notespaging.presentation.notedetail
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.jshvarts.notespaging.R
 import com.jshvarts.notespaging.domain.Note
 import com.jshvarts.notespaging.presentation.notedetail.NoteDetailFragmentArgs.fromBundle
-import com.jshvarts.notespaging.presentation.notedetail.NoteDetailFragmentDirections.actionNoteDetailToDeleteNote
-import com.jshvarts.notespaging.presentation.notedetail.NoteDetailFragmentDirections.actionNoteDetailToEditNote
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.note_detail_fragment.*
+import javax.inject.Inject
 
 class NoteDetailFragment : Fragment() {
+    @Inject
+    lateinit var noteDetailViewModelFactory: NoteDetailViewModelFactory
 
     private lateinit var viewModel: NoteDetailViewModel
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -28,21 +35,10 @@ class NoteDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(NoteDetailViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, noteDetailViewModelFactory).get(NoteDetailViewModel::class.java)
         viewModel.observableNote.observe(this, Observer { note ->
             note?.let { render(note) } ?: renderNoteNotFound()
         })
-
-        val args = fromBundle(arguments)
-        editNoteButton.setOnClickListener {
-            val navDirections = actionNoteDetailToEditNote(args.noteId)
-            findNavController(it).navigate(navDirections)
-        }
-
-        deleteNoteButton.setOnClickListener {
-            val navDirections = actionNoteDetailToDeleteNote(args.noteId)
-            findNavController(it).navigate(navDirections)
-        }
     }
 
     override fun onResume() {

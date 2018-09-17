@@ -1,21 +1,31 @@
 package com.jshvarts.notespaging.presentation.addnote
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation.findNavController
 import com.jshvarts.notespaging.R
 import com.jshvarts.notespaging.presentation.closeSoftKeyboard
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.add_note_fragment.*
+import javax.inject.Inject
 
 class AddNoteFragment : Fragment() {
+    @Inject
+    lateinit var addNoteViewModelFactory: AddNoteViewModelFactory
 
     private lateinit var viewModel: AddNoteViewModel
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -24,7 +34,7 @@ class AddNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AddNoteViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, addNoteViewModelFactory).get(AddNoteViewModel::class.java)
         viewModel.observableStatus.observe(this, Observer { status ->
             status?.let { render(status) }
         })
