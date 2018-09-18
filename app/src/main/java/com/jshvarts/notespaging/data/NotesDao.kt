@@ -1,5 +1,6 @@
 package com.jshvarts.notespaging.data
 
+import android.arch.paging.DataSource
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
@@ -18,5 +19,5 @@ interface NotesDao {
     fun noteById(id: Long): Single<NoteEntity>
 
     @Query("SELECT * FROM notes ORDER BY id ASC")
-    fun allNotes(): Single<List<NoteEntity>>
+    fun allNotes(): DataSource.Factory<Int, NoteEntity>
 }

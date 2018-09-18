@@ -1,5 +1,6 @@
 package com.jshvarts.notespaging.domain
 
+import android.arch.paging.DataSource
 import io.reactivex.Completable
 import io.reactivex.Single
 
@@ -10,5 +11,5 @@ interface NotesRepository {
 
     fun noteById(id: Long): Single<Note>
 
-    fun allNotes(): Single<List<Note>>
+    fun allNotes(): DataSource.Factory<Int, Note>
 }
