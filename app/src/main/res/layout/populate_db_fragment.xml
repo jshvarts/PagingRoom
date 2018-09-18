@@ -9,7 +9,7 @@
         android:id="@+id/populateDbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Populate"
+        android:text="@string/populate_db"
         android:textSize="20sp"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
