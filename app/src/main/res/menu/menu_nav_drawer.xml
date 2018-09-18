@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/searchFragment"
-            android:title="@string/label_search_notes" />
+            android:id="@+id/populateDbFragment"
+            android:title="@string/label_populate_db" />
     </group>
 </menu>

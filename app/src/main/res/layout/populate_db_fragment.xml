@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp">
 
-    <TextView
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/populateDbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search not implemented"
+        android:text="Populate"
         android:textSize="20sp"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

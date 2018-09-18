@@ -19,10 +19,6 @@ class NoteListViewModel @Inject constructor(
     val observableNoteList: LiveData<List<Note>>
         get() = noteList
 
-    init {
-        load()
-    }
-
     fun load() {
         disposables += getNotesUseCase.allNotes()
                 .subscribeOn(Schedulers.io())

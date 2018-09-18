@@ -2,7 +2,7 @@ package com.jshvarts.notespaging
 
 import android.app.Application
 import com.jshvarts.notespaging.di.AppComponent
-import com.jshvarts.notespaging.di.createAppComponent
+import com.jshvarts.notespaging.di.DaggerAppComponent
 import dagger.android.HasActivityInjector
 import timber.log.Timber
 
@@ -15,7 +15,9 @@ class PagingRoomApplication : Application(), HasActivityInjector {
             Timber.plant(Timber.DebugTree())
         }
 
-        appComponent = createAppComponent()
+        appComponent = DaggerAppComponent.builder()
+                .application(this)
+                .build()
     }
 
     override fun activityInjector() = appComponent.activityInjector

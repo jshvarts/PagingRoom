@@ -1,6 +1,6 @@
 package com.jshvarts.notespaging.presentation.notelist
 
-import android.support.v7.util.DiffUtil
+import android.support.v7.util.DiffUtil.calculateDiff
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -35,7 +35,7 @@ class NoteAdapter(
     override fun getItemCount() = noteList.size
 
     fun updateNotes(noteList: List<Note>) {
-        val diffResult = DiffUtil.calculateDiff(NoteDiffCallback(this.noteList, noteList))
+        val diffResult = calculateDiff(NoteDiffCallback(this.noteList, noteList))
         this.noteList = noteList
         diffResult.dispatchUpdatesTo(this)
     }

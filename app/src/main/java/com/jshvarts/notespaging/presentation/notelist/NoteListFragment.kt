@@ -16,6 +16,7 @@ import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections
 import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections.actionNotesToNoteDetail
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.note_list_fragment.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class NoteListFragment : Fragment() {
@@ -51,10 +52,7 @@ class NoteListFragment : Fragment() {
         fab.setOnClickListener {
             findNavController(it).navigate(actionNotesToAddNote())
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
         viewModel.load()
     }
 
@@ -79,6 +77,5 @@ class NoteListFragment : Fragment() {
     private fun setupRecyclerView() {
         notesRecyclerView.layoutManager = LinearLayoutManager(this.context)
         notesRecyclerView.adapter = recyclerViewAdapter
-        notesRecyclerView.setHasFixedSize(true)
     }
 }

@@ -11,6 +11,9 @@ interface NotesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(note: NoteEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(note: List<NoteEntity>)
+
     @Query("SELECT * FROM notes WHERE id = :id")
     fun noteById(id: Long): Single<NoteEntity>
 

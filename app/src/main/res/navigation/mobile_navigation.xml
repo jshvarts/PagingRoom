@@ -48,9 +48,9 @@
         tools:layout="@layout/add_note_fragment" />
 
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.jshvarts.notespaging.presentation.search.SearchFragment"
-        android:label="@string/label_search_notes"
-        tools:layout="@layout/search_fragment" />
+        android:id="@+id/populateDbFragment"
+        android:name="com.jshvarts.notespaging.presentation.PopulateDbFragment"
+        android:label="@string/label_populate_db"
+        tools:layout="@layout/populate_db_fragment" />
 
 </navigation>

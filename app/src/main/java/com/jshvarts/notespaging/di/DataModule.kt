@@ -16,8 +16,7 @@ object DataModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun provideRepository(notesDao: NotesDao, mapper: DbNoteMapper): NotesRepository =
-            NotesRepositoryImpl(notesDao, mapper)
+    fun provideContext(application: Application) = application.applicationContext
 
     @Singleton
     @JvmStatic
@@ -27,10 +26,5 @@ object DataModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun provideContext(application: Application) = application.applicationContext
-
-    @Singleton
-    @JvmStatic
-    @Provides
-    fun provideDbMapper() = DbNoteMapper()
+    fun provideRepository(notesDao: NotesDao, mapper: DbNoteMapper): NotesRepository = NotesRepositoryImpl(notesDao, mapper)
 }

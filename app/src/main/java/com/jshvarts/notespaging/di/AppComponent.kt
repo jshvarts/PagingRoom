@@ -12,7 +12,6 @@ import javax.inject.Singleton
 @Component(modules = [
     DataModule::class,
     MainActivityModule::class,
-    FragmentsModule::class,
     AndroidSupportInjectionModule::class
 ])
 interface AppComponent {
@@ -26,7 +25,3 @@ interface AppComponent {
 
     val activityInjector: DispatchingAndroidInjector<Activity>
 }
-
-fun Application.createAppComponent() = DaggerAppComponent.builder()
-        .application(this)
-        .build()
