@@ -2,6 +2,7 @@ package com.jshvarts.notespaging.presentation.notelist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.arch.paging.PagedList
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -16,7 +17,6 @@ import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections
 import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections.actionNotesToNoteDetail
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.note_list_fragment.*
-import timber.log.Timber
 import javax.inject.Inject
 
 class NoteListFragment : Fragment() {
@@ -45,20 +45,18 @@ class NoteListFragment : Fragment() {
         setupRecyclerView()
 
         viewModel = ViewModelProviders.of(this, noteListViewModelFactory).get(NoteListViewModel::class.java)
-        viewModel.observableNoteList.observe(this, Observer { notes ->
-            notes?.let { render(notes) }
+        viewModel.noteList.observe(this, Observer { pagedNoteList ->
+            pagedNoteList?.let { render(pagedNoteList) }
         })
 
         fab.setOnClickListener {
             findNavController(it).navigate(actionNotesToAddNote())
         }
-
-        viewModel.load()
     }
 
-    private fun render(noteList: List<Note>) {
-        recyclerViewAdapter.updateNotes(noteList)
-        if (noteList.isEmpty()) {
+    private fun render(pagedNoteList: PagedList<Note>) {
+        recyclerViewAdapter.submitList(pagedNoteList)
+        if (pagedNoteList.isEmpty()) {
             notesRecyclerView.visibility = View.GONE
             notesNotFound.visibility = View.VISIBLE
         } else {
