@@ -38,11 +38,5 @@
         android:name="com.jshvarts.notespaging.presentation.addnote.AddNoteFragment"
         android:label="@string/label_add_note"
         tools:layout="@layout/add_note_fragment" />
-
-    <fragment
-        android:id="@+id/populateDbFragment"
-        android:name="com.jshvarts.notespaging.presentation.PopulateDbFragment"
-        android:label="@string/label_populate_db"
-        tools:layout="@layout/populate_db_fragment" />
-
+    
 </navigation>
