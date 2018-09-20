@@ -20,7 +20,7 @@ class NoteViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
      */
     fun bindTo(note: Note?) {
         this.note = note
-        idView.text = note?.id.toString()
-        nameView.text = note?.text
+        idView.text = note?.let { it.id.toString() } ?: ""
+        nameView.text = note?.text ?: ""
     }
 }
