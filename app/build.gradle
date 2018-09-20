@@ -74,6 +74,7 @@ dependencies {
 
     // Paging
     implementation "android.arch.paging:runtime:$archPagingVersion"
+    implementation "android.arch.paging:rxjava2:$archPagingVersion"
 
     // Dagger
     implementation "com.google.dagger:dagger:$daggerVersion"

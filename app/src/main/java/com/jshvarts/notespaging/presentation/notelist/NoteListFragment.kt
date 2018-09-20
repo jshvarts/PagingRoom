@@ -1,6 +1,5 @@
 package com.jshvarts.notespaging.presentation.notelist
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
 import android.content.Context
@@ -16,7 +15,11 @@ import com.jshvarts.notespaging.domain.Note
 import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections.actionNotesToAddNote
 import com.jshvarts.notespaging.presentation.notelist.NoteListFragmentDirections.actionNotesToNoteDetail
 import dagger.android.support.AndroidSupportInjection
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.note_list_fragment.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class NoteListFragment : Fragment() {
@@ -28,6 +31,8 @@ class NoteListFragment : Fragment() {
     private val recyclerViewAdapter = NoteAdapter(clickListener)
 
     private lateinit var viewModel: NoteListViewModel
+
+    private val disposables = CompositeDisposable()
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
@@ -45,13 +50,21 @@ class NoteListFragment : Fragment() {
         setupRecyclerView()
 
         viewModel = ViewModelProviders.of(this, noteListViewModelFactory).get(NoteListViewModel::class.java)
-        viewModel.noteList.observe(this, Observer { pagedNoteList ->
-            pagedNoteList?.let { render(pagedNoteList) }
-        })
 
         fab.setOnClickListener {
             findNavController(it).navigate(actionNotesToAddNote())
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        disposables += viewModel.noteList
+                .subscribeBy(onNext = { render(it) }, onError = Timber::e)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        disposables.clear()
     }
 
     private fun render(pagedNoteList: PagedList<Note>) {
