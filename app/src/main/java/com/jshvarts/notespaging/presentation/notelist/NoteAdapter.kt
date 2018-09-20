@@ -14,11 +14,15 @@ class NoteAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         Timber.d("Binding view holder at position $position")
-        val note = getItem(position) ?: return
+        val note = getItem(position)
 
         with(holder) {
             bindTo(note)
-            itemView.setOnClickListener { clickListener(note) }
+            note?.let {
+                itemView.setOnClickListener {
+                    clickListener(note)
+                }
+            }
         }
     }
 
