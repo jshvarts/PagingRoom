@@ -2,16 +2,18 @@
 
 This project contains a sample of using the [Paging Library Architecture Component](https://developer.android.com/topic/libraries/architecture/paging/) by way of a simple Notes app--no domain knowledge needed to understand the purpose of this app.
 
-## Major Libraries
+## Libraries
 * [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
+* [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
 * [Lifecycle Arch components](https://developer.android.com/topic/libraries/architecture/lifecycle)
 * [Dagger Android 2.17](https://google.github.io/dagger/android.html)
+* [RxJava](https://github.com/ReactiveX/RxJava)
 
 ## App Design
 The app follows **Clean Architecture** Principles to make it cleaner, more readable and maintainable.
 * Separate layers: Data, Domain, Presentation and UI
-* MVVM architecture for clean separataion between UI and Presentation and below
+* MVVM architecture for clean separation between UI and Presentation and below
 * Repository pattern
 * Mapping model between data and domain (`NoteEntity` and `Note`)   
 
