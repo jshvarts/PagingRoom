@@ -19,9 +19,9 @@ class NotesRepositoryImpl(private val notesDao: NotesDao,
     override fun noteById(id: Long): Single<Note> =
             notesDao.noteById(id).map { mapper.fromDb(it) }
 
-    override fun notes(limit: Int): List<Note> =
-            notesDao.notes(limit).map { mapper.fromDb(it) }
+    override fun notes(requestedLoadSize: Int): List<Note> =
+            notesDao.notes(requestedLoadSize).map { mapper.fromDb(it) }
 
-    override fun notesAfter(noteText: String, limit: Int): List<Note> =
-            notesDao.notesAfter(noteText, limit).map { mapper.fromDb(it) }
+    override fun notesAfter(key: String, requestedLoadSize: Int): List<Note> =
+            notesDao.notesAfter(key, requestedLoadSize).map { mapper.fromDb(it) }
 }

@@ -2,7 +2,7 @@ package com.jshvarts.notespaging.presentation.notelist
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.jshvarts.notespaging.data.NotesDataSourceFactory
+import com.jshvarts.notespaging.domain.NotesDataSourceFactory
 
 class NoteListViewModelFactory(
         private val dataSourceFactory: NotesDataSourceFactory

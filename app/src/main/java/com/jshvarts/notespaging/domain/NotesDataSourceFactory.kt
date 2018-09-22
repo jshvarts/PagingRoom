@@ -1,8 +1,7 @@
-package com.jshvarts.notespaging.data
+package com.jshvarts.notespaging.domain
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.DataSource
-import com.jshvarts.notespaging.domain.Note
 import javax.inject.Inject
 
 class NotesDataSourceFactory @Inject constructor(

@@ -10,7 +10,7 @@ interface NotesRepository {
 
     fun noteById(id: Long): Single<Note>
 
-    fun notes(limit: Int): List<Note>
+    fun notes(requestedLoadSize: Int): List<Note>
 
-    fun notesAfter(noteText: String, limit: Int): List<Note>
+    fun notesAfter(key: String, requestedLoadSize: Int): List<Note>
 }

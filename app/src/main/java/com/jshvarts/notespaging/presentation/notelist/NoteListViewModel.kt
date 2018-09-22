@@ -2,7 +2,7 @@ package com.jshvarts.notespaging.presentation.notelist
 
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
-import com.jshvarts.notespaging.data.NotesDataSourceFactory
+import com.jshvarts.notespaging.domain.NotesDataSourceFactory
 import com.jshvarts.notespaging.domain.Note
 import com.jshvarts.notespaging.presentation.BaseViewModel
 import javax.inject.Inject

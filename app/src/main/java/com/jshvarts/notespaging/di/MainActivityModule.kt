@@ -1,6 +1,6 @@
 package com.jshvarts.notespaging.di
 
-import com.jshvarts.notespaging.data.NotesDataSourceFactory
+import com.jshvarts.notespaging.domain.NotesDataSourceFactory
 import com.jshvarts.notespaging.domain.AddNoteUseCase
 import com.jshvarts.notespaging.domain.GetNoteUseCase
 import com.jshvarts.notespaging.presentation.MainActivity

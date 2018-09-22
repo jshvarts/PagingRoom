@@ -1,8 +1,6 @@
-package com.jshvarts.notespaging.data
+package com.jshvarts.notespaging.domain
 
 import android.arch.paging.ItemKeyedDataSource
-import com.jshvarts.notespaging.domain.Note
-import com.jshvarts.notespaging.domain.NotesRepository
 import javax.inject.Inject
 
 class NoteKeyedDataSource @Inject constructor(
@@ -10,12 +8,12 @@ class NoteKeyedDataSource @Inject constructor(
 ) : ItemKeyedDataSource<String, Note>() {
 
     override fun loadInitial(params: LoadInitialParams<String>, callback: LoadInitialCallback<Note>) {
-        val items = notesRepo.notes(limit = params.requestedLoadSize)
+        val items = notesRepo.notes(requestedLoadSize = params.requestedLoadSize)
         callback.onResult(items)
     }
 
     override fun loadAfter(params: LoadParams<String>, callback: LoadCallback<Note>) {
-        val items = notesRepo.notesAfter(noteText = params.key, limit = params.requestedLoadSize)
+        val items = notesRepo.notesAfter(key = params.key, requestedLoadSize = params.requestedLoadSize)
         callback.onResult(items)
     }
 

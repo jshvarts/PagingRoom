@@ -17,9 +17,9 @@ interface NotesDao {
     @Query("SELECT * FROM notes WHERE id = :id")
     fun noteById(id: Long): Single<NoteEntity>
 
-    @Query("SELECT * FROM notes ORDER BY note_text ASC limit :limit")
-    fun notes(limit: Int): List<NoteEntity>
+    @Query("SELECT * FROM notes ORDER BY note_text ASC limit :requestedLoadSize")
+    fun notes(requestedLoadSize: Int): List<NoteEntity>
 
-    @Query("SELECT * FROM notes WHERE note_text > :noteText ORDER BY note_text ASC limit :limit")
-    fun notesAfter(noteText: String, limit: Int): List<NoteEntity>
+    @Query("SELECT * FROM notes WHERE note_text > :key ORDER BY note_text ASC limit :requestedLoadSize")
+    fun notesAfter(key: String, requestedLoadSize: Int): List<NoteEntity>
 }
