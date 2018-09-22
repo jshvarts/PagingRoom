@@ -2,10 +2,24 @@
 
 This project contains a sample of using the [Paging Library Architecture Component](https://developer.android.com/topic/libraries/architecture/paging/) by way of a simple Notes app--no domain knowledge needed to understand the purpose of this app.
 
-## Functionality
+## Major Libraries
+* [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
+* [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
+* [Lifecycle Arch components](https://developer.android.com/topic/libraries/architecture/lifecycle)
+* [Dagger Android 2.17](https://google.github.io/dagger/android.html)
 
-## Design Pattern
-MVVM (Model-View-ViewModel) is used to make the architecture cleaner, more readable and maintainable. Notes are stored and managed in memory within the domain layer (this sample is about Navigation and not full-blown [Clean Architecture](https://github.com/jshvarts/ConductorMVP) after all).   
+## App Design
+The app follows **Clean Architecture** Principles to make it cleaner, more readable and maintainable.
+* Separate layers: Data, Domain, Presentation and UI
+* MVVM architecture for clean separataion between UI and Presentation and below
+* Repository pattern
+* Mapping model between data and domain (`NoteEntity` and `Note`)   
+
+## Branches
+1) [master](https://github.com/jshvarts/PagingRoom) -- common setup with no paging used
+2) [room-livedata](https://github.com/jshvarts/PagingRoom/tree/room-livedata) -- paging using `LiveData` and default `DataSource` 
+3) [room-rxjava](https://github.com/jshvarts/PagingRoom/tree/room-rxjava) -- paging using `RxJava` and default `DataSource` 
+4) [room-livedata-custom-datasource](https://github.com/jshvarts/PagingRoom/tree/room-livedata-custom-datasource) -- paging using `LiveData` and custom `ItemKeyedDataSource`
 
 ## License
 
