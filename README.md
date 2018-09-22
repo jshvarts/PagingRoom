@@ -4,20 +4,22 @@ Demonstrates using [Paging Library](https://developer.android.com/topic/librarie
 
 ## Other Branches
 1) [master](https://github.com/jshvarts/PagingRoom) -- common setup with no paging used
-2) [room-livedata](https://github.com/jshvarts/PagingRoom/tree/room-livedata) -- (this branch) paging using `LiveData` and default `DataSource` 
+2) [room-livedata](https://github.com/jshvarts/PagingRoom/tree/room-livedata) -- **(this branch)** paging using `LiveData` and default `DataSource` 
 3) [room-rxjava](https://github.com/jshvarts/PagingRoom/tree/room-rxjava) -- paging using `RxJava` and default `DataSource` 
 4) [room-livedata-custom-datasource](https://github.com/jshvarts/PagingRoom/tree/room-livedata-custom-datasource) -- paging using `LiveData` and custom `ItemKeyedDataSource`
 
-## Major Libraries
+## Libraries
 * [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
+* [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
 * [Lifecycle Arch components](https://developer.android.com/topic/libraries/architecture/lifecycle)
 * [Dagger Android 2.17](https://google.github.io/dagger/android.html)
+* [RxJava](https://github.com/ReactiveX/RxJava)
 
 ## App Design
 The app follows **Clean Architecture** Principles to make it cleaner, more readable and maintainable.
 * Separate layers: Data, Domain, Presentation and UI
-* MVVM architecture for clean separataion between UI and Presentation and below
+* MVVM architecture for clean separation between UI and Presentation and below
 * Repository pattern
 * Mapping model between data and domain (`NoteEntity` and `Note`)   
 
