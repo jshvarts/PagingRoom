@@ -40,5 +40,5 @@ abstract class NotesDatabase : RoomDatabase() {
 }
 
 private fun getData(): List<String> {
-    return (1..100).map { "note" }
+    return (1..100).map { "note-$it" }
 }

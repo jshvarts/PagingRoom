@@ -1,6 +1,5 @@
 package com.jshvarts.notespaging.data
 
-import android.arch.paging.DataSource
 import com.jshvarts.notespaging.domain.Note
 import com.jshvarts.notespaging.domain.NotesRepository
 import io.reactivex.Completable
@@ -20,6 +19,9 @@ class NotesRepositoryImpl(private val notesDao: NotesDao,
     override fun noteById(id: Long): Single<Note> =
             notesDao.noteById(id).map { mapper.fromDb(it) }
 
-    override fun allNotes(): DataSource.Factory<Int, Note> =
-            notesDao.allNotes().map { mapper.fromDb(it) }
+    override fun notes(limit: Int): List<Note> =
+            notesDao.notes(limit).map { mapper.fromDb(it) }
+
+    override fun notesAfter(noteText: String, limit: Int): List<Note> =
+            notesDao.notesAfter(noteText, limit).map { mapper.fromDb(it) }
 }

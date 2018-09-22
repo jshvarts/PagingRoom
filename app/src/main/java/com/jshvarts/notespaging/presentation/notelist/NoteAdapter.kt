@@ -24,6 +24,8 @@ class NoteAdapter(
                 }
             }
         }
+
+        Timber.d("james " + currentList)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder =

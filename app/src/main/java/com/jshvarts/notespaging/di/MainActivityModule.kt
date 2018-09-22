@@ -1,8 +1,8 @@
 package com.jshvarts.notespaging.di
 
+import com.jshvarts.notespaging.data.NotesDataSourceFactory
 import com.jshvarts.notespaging.domain.AddNoteUseCase
 import com.jshvarts.notespaging.domain.GetNoteUseCase
-import com.jshvarts.notespaging.domain.GetNotesUseCase
 import com.jshvarts.notespaging.presentation.MainActivity
 import com.jshvarts.notespaging.presentation.addnote.AddNoteFragment
 import com.jshvarts.notespaging.presentation.addnote.AddNoteViewModelFactory
@@ -37,8 +37,8 @@ abstract class MainActivityModule {
 
         @JvmStatic
         @Provides
-        fun provideNoteListViewModelFactory(getNotesUseCase: GetNotesUseCase) =
-                NoteListViewModelFactory(getNotesUseCase)
+        fun provideNoteListViewModelFactory(dataSourceFactory: NotesDataSourceFactory) =
+                NoteListViewModelFactory(dataSourceFactory)
 
         @JvmStatic
         @Provides
