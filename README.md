@@ -1,5 +1,7 @@
 # Paging Library Architecture Component Demo
 
+[![Build Status](https://travis-ci.org/jshvarts/PagingRoom.svg?branch=master)](https://travis-ci.org/jshvarts/PagingRoom)
+
 Companion article: [Exploring Paging Library from Jetpack](https://proandroiddev.com/exploring-paging-library-from-jetpack-c661c7399662)
  
 This project contains a sample of using the [Paging Library Architecture Component](https://developer.android.com/topic/libraries/architecture/paging/) by way of a simple Notes app--no domain knowledge needed to understand the purpose of this app.
