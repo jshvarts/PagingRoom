@@ -1,5 +1,7 @@
 # Room Paging Library: `RxJava` and default `DataSource`
 
+[![Build Status](https://travis-ci.org/jshvarts/PagingRoom.svg?branch=room-rxjava)](https://travis-ci.org/jshvarts/PagingRoom)
+
 Companion article: [Exploring Paging Library from Jetpack](https://proandroiddev.com/exploring-paging-library-from-jetpack-c661c7399662)
 
 Demonstrates using [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/) with `RxJava` and default `DataSource`. 
@@ -14,7 +16,7 @@ Demonstrates using [Paging Library](https://developer.android.com/topic/librarie
 * [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
 * [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
-* [Lifecycle Arch components](https://developer.android.com/topic/libraries/architecture/lifecycle)
+* [Lifecycle Architecture Component](https://developer.android.com/topic/libraries/architecture/lifecycle)
 * [Dagger Android 2.17](https://google.github.io/dagger/android.html)
 * [RxJava](https://github.com/ReactiveX/RxJava)
 
