@@ -1,5 +1,7 @@
 # Room Paging Library: paging using `LiveData` and custom `ItemKeyedDataSource`
 
+Companion article: [Exploring Paging Library from Jetpack](https://proandroiddev.com/exploring-paging-library-from-jetpack-c661c7399662)
+
 Demonstrates using [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/) with paging using `LiveData` and custom `ItemKeyedDataSource`. 
 
 ## Other Branches
