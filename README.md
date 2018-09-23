@@ -10,7 +10,7 @@ This project contains a sample of using the [Paging Library Architecture Compone
 * [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
 * [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
-* [Lifecycle Arch components](https://developer.android.com/topic/libraries/architecture/lifecycle)
+* [Lifecycle Architecture component](https://developer.android.com/topic/libraries/architecture/lifecycle)
 * [Dagger Android 2.17](https://google.github.io/dagger/android.html)
 * [RxJava](https://github.com/ReactiveX/RxJava)
 
