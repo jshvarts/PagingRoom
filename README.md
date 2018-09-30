@@ -1,6 +1,6 @@
 # Room Paging Library: `LiveData` and default `DataSource`
 
-[![Build Status](https://travis-ci.org/jshvarts/PagingRoom.svg?branch=room-livedata)](https://travis-ci.org/jshvarts/PagingRoom)
+[![Build Status](https://travis-ci.org/jshvarts/PagingRoom.svg?branch=room-livedata)](https://travis-ci.org/jshvarts/PagingRoom) [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23329-2CA3E6.svg?style=flat)](http://androidweekly.net/issues/issue-329)
 
 Companion article: [Exploring Paging Library from Jetpack](https://proandroiddev.com/exploring-paging-library-from-jetpack-c661c7399662)
 
