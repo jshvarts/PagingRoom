@@ -9,7 +9,7 @@ import timber.log.Timber
 typealias ClickListener = (Note) -> Unit
 
 class NoteAdapter(
-        private val clickListener: ClickListener
+    private val clickListener: ClickListener
 ) : PagedListAdapter<Note, NoteViewHolder>(diffCallback) {
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
@@ -24,12 +24,10 @@ class NoteAdapter(
                 }
             }
         }
-
-        Timber.d("james " + currentList)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder =
-            NoteViewHolder(parent)
+        NoteViewHolder(parent)
 
     companion object {
         /**
@@ -38,10 +36,10 @@ class NoteAdapter(
          */
         private val diffCallback = object : DiffUtil.ItemCallback<Note>() {
             override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean =
-                    oldItem.id == newItem.id
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean =
-                    oldItem == newItem
+                oldItem == newItem
         }
     }
 }
