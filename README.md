@@ -11,7 +11,7 @@ This project contains a sample of using the [Paging Library Architecture Compone
 * [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
 * [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/)
 * [Lifecycle Architecture component](https://developer.android.com/topic/libraries/architecture/lifecycle)
-* [Dagger Android 2.17](https://google.github.io/dagger/android.html)
+* [Dagger Android 2.17](https://google.github.io/dagger/android.html) or [Koin](https://insert-koin.io/)
 * [RxJava](https://github.com/ReactiveX/RxJava)
 
 ## App Design
@@ -26,6 +26,7 @@ The app follows **Clean Architecture** Principles to make it cleaner, more reada
 2) [room-livedata](https://github.com/jshvarts/PagingRoom/tree/room-livedata) -- paging using `LiveData` and default `DataSource` 
 3) [room-rxjava](https://github.com/jshvarts/PagingRoom/tree/room-rxjava) -- paging using `RxJava` and default `DataSource` 
 4) [room-livedata-custom-datasource](https://github.com/jshvarts/PagingRoom/tree/room-livedata-custom-datasource) -- paging using `LiveData` and custom `ItemKeyedDataSource`
+5) [room-livedata-custom-datasource-koin](https://github.com/jshvarts/PagingRoom/tree/room-livedata-custom-datasource-koin) -- paging using `LiveData` and custom `ItemKeyedDataSource` with [Koin](https://insert-koin.io/)
 
 ## License
 
