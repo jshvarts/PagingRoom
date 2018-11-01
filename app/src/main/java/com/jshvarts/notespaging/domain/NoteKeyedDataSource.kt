@@ -1,9 +1,8 @@
 package com.jshvarts.notespaging.domain
 
 import android.arch.paging.ItemKeyedDataSource
-import javax.inject.Inject
 
-class NoteKeyedDataSource @Inject constructor(
+class NoteKeyedDataSource constructor(
         private val notesRepo: NotesRepository
 ) : ItemKeyedDataSource<String, Note>() {
 

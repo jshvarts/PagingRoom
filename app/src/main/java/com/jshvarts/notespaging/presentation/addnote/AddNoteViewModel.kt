@@ -9,9 +9,8 @@ import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
-import javax.inject.Inject
 
-class AddNoteViewModel @Inject constructor(
+class AddNoteViewModel constructor(
         private val addNoteUseCase: AddNoteUseCase
 ) : BaseViewModel() {
     private val status = MutableLiveData<Boolean>()

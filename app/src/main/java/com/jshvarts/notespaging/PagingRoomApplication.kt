@@ -1,24 +1,17 @@
 package com.jshvarts.notespaging
 
 import android.app.Application
-import com.jshvarts.notespaging.di.AppComponent
-import com.jshvarts.notespaging.di.DaggerAppComponent
-import dagger.android.HasActivityInjector
+import com.jshvarts.notespaging.di.notesModule
+import org.koin.android.ext.android.startKoin
 import timber.log.Timber
 
-class PagingRoomApplication : Application(), HasActivityInjector {
-    private lateinit var appComponent: AppComponent
-
+class PagingRoomApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
 
-        appComponent = DaggerAppComponent.builder()
-                .application(this)
-                .build()
+        startKoin(this, listOf(notesModule))
     }
-
-    override fun activityInjector() = appComponent.activityInjector
 }
