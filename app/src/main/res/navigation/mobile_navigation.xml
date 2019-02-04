@@ -38,5 +38,5 @@
         android:name="com.jshvarts.notespaging.presentation.addnote.AddNoteFragment"
         android:label="@string/label_add_note"
         tools:layout="@layout/add_note_fragment" />
-    
+
 </navigation>

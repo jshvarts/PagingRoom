@@ -22,6 +22,10 @@ class NoteDetailFragment : Fragment() {
 
     private lateinit var viewModel: NoteDetailViewModel
 
+    private val noteId by lazy {
+        fromBundle(arguments).noteId
+    }
+
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
@@ -43,16 +47,16 @@ class NoteDetailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getNote(fromBundle(arguments).noteId)
+        viewModel.getNote(noteId)
     }
 
     private fun render(note: Note) {
-        noteId.text = String.format(getString(R.string.note_detail_id), note.id)
+        noteIdView.text = String.format(getString(R.string.note_detail_id), note.id)
         noteText.text = String.format(getString(R.string.note_detail_text), note.text)
     }
 
     private fun renderNoteNotFound() {
-        noteId.visibility = View.GONE
+        noteIdView.visibility = View.GONE
         noteText.visibility = View.GONE
         view?.let {
             Snackbar.make(it, R.string.error_loading_note, Snackbar.LENGTH_LONG).show()
